@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "Google 로그인 크롬 확장",
+  "version": "1.0.0",
+  "description": "구글 소셜 로그인을 지원하는 크롬 확장 프로그램",
+  "action": {
+    "default_popup": "index.html"
+  },
+  "permissions": ["identity", "activeTab", "scripting"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"]
+    }
+  ],
+  "oauth2": {
+    "client_id": "329678146624-v01ncg0d6q5ovjuv2gdllu29m89m0dvh.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email",
+      "https://www.googleapis.com/auth/userinfo.profile"
+    ]
+  }
+}
